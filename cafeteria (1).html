@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Encanto - Responsive</title>
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Colores Base */
+            --bg-main: #fcfbfa; 
+            --text-dark: #5c4b41; 
+            --text-light: #8a7c73;
+            
+            /* Paleta Soft Pastel */
+            --pastel-pink: #ffd1dc;    
+            --pastel-peach: #ffe5b4;   
+            --pastel-yellow: #fff3c7;  
+            --pastel-mint: #dcedde;    
+            --pastel-blue: #d4e4f7;    
+            --pastel-lilac: #e6e6fa;   
+            --pastel-rose: #fdf2f2;    
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER FIJO --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: rgba(252, 251, 250, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .logo i {
+            color: #e2a9a9;
+        }
+
+        /* Navegación y menú hamburguesa */
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--text-dark);
+        }
+
+        .btn-pink {
+            background-color: var(--pastel-pink);
+            color: var(--text-dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-pink:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255, 209, 220, 0.5);
+        }
+
+        .menu-toggle {
+            display: none; /* Oculto en PC */
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        section {
+            scroll-margin-top: 100px; 
+            padding-bottom: 60px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0 0 0;
+            margin-top: 10px;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, var(--pastel-rose), var(--pastel-peach));
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 50px;
+            gap: 30px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.8rem;
+            color: var(--text-dark);
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 400px;
+            opacity: 0.8;
+        }
+
+        .btn-green {
+            background-color: var(--pastel-mint);
+            color: var(--text-dark);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            object-fit: cover;
+        }
+
+        /* --- FEATURES --- */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding-top: 60px;
+        }
+
+        .feature-item { text-align: center; }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            transition: transform 0.3s;
+        }
+
+        .icon-1 { background-color: var(--pastel-peach); }
+        .icon-2 { background-color: var(--pastel-mint); }
+        .icon-3 { background-color: var(--pastel-lilac); }
+        .icon-4 { background-color: var(--pastel-pink); }
+
+        .feature-item h3 { font-size: 1.05rem; margin-bottom: 10px; }
+        .feature-item p { font-size: 0.85rem; color: var(--text-light); }
+
+        /* --- BOTTOM CARDS --- */
+        .bottom-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.5fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            border-radius: 25px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-about { background-color: var(--pastel-blue); }
+        .card-about h3 { font-size: 0.9rem; color: #7b94b5; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1.5px; }
+        .card-about p { font-size: 0.9rem; margin-bottom: 25px; color: var(--text-dark); opacity: 0.8;}
+        .card-about a { font-size: 0.85rem; color: var(--text-dark); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--text-dark);}
+
+        .card-image-left {
+            background-color: #fff;
+            /* Corregido: & cambiado a &amp; */
+            background-image: url('https://images.unsplash.com/photo-1559525839-b184a4d698c7?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-promo { background-color: var(--pastel-pink); text-align: center; align-items: center; }
+        .card-promo h3 { font-size: 0.9rem; color: #a97782; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .card-promo h2 { font-size: 1.8rem; margin-bottom: 5px; font-family: 'Dancing Script', cursive;}
+        .card-promo .price { font-size: 2.2rem; font-weight: 400; margin-bottom: 20px; color: var(--text-dark); }
+        .card-promo .btn-promo { background-color: rgba(255,255,255,0.7); border: none; padding: 10px 25px; border-radius: 20px; font-weight: 600; cursor: pointer; text-decoration: none; color: var(--text-dark); transition: background 0.3s; }
+
+        .card-image-right {
+            background-color: #fff;
+            /* Corregido: & cambiado a &amp; */
+            background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* --- SECCIONES EXTRA --- */
+        .section-title {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background-color: var(--pastel-yellow);
+            padding: 50px;
+            border-radius: 30px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px dotted rgba(92, 75, 65, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .menu-item span { font-weight: 600; }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+
+        /* --- FOOTER / CONTACTO --- */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 30px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            background-color: var(--pastel-lilac);
+            border-radius: 30px 30px 0 0;
+        }
+
+        .social-icons { display: flex; gap: 15px; }
+        .social-icons a { 
+            color: var(--text-dark); 
+            background-color: rgba(255,255,255,0.5);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem; 
+        }
+        .footer-links a { color: var(--text-dark); text-decoration: none; margin-left: 15px; font-weight: 500;}
+
+        /* =========================================
+           DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
+           ========================================= */
+        
+        @media (max-width: 992px) {
+            .hero-bg { flex-direction: column; text-align: center; }
+            .hero-content p { margin: 0 auto 30px auto; }
+            .features { grid-template-columns: repeat(2, 1fr); }
+            .bottom-section { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            /* Header y Menú Hamburguesa */
+            .menu-toggle { display: block; }
+            .nav-wrapper .btn-pink { display: none; } 
+            
+            nav {
+                position: absolute;
+                top: 75px; 
+                left: 0;
+                width: 100%;
+                background-color: rgba(252, 251, 250, 0.98);
+                padding: 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+
+            nav.activo {
+                max-height: 400px;
+                border-top: 1px solid rgba(0,0,0,0.05);
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                padding: 10px 0;
+            }
+
+            nav a {
+                display: block;
+                padding: 15px 20px;
+                font-size: 1.1rem;
+                text-align: center;
+                border-bottom: 1px solid rgba(0,0,0,0.03);
+            }
+
+            .hero-content h1 { font-size: 3rem; }
+            .section-title { font-size: 2.5rem; }
+            .hero-bg { padding: 30px 20px; }
+
+            .features { grid-template-columns: 1fr; padding-top: 40px; gap: 20px;}
+            .bottom-section { grid-template-columns: 1fr; }
+            .card { padding: 30px 20px; text-align: center;}
+            .card-about a { margin: 0 auto; display: inline-block; }
+            /* Corregido: Se quitó el display: none para que las imágenes se vean en móvil */
+            .card-image-left, .card-image-right { min-height: 200px; display: block; } 
+            .menu-grid { grid-template-columns: 1fr; padding: 25px 15px; }
+            .menu-item { flex-direction: column; text-align: center; gap: 5px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+            .footer-links a { display: block; margin: 10px 0 0 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <a href="#inicio" class="logo">
+            <i class="fa-solid fa-mug-hot"></i> Café Encanto
+        </a>
+        
+        <div class="nav-wrapper">
+            <!-- Menú de Navegación -->
+            <nav id="menu-navegacion">
+                <ul>
+                    <li><a href="#inicio" class="nav-link">INICIO</a></li>
+                    <li><a href="#nosotros" class="nav-link">NOSOTROS</a></li>
+                    <li><a href="#menu" class="nav-link">MENÚ</a></li>
+                    <li><a href="#galeria" class="nav-link">GALERÍA</a></li>
+                    <li><a href="#contacto" class="nav-link">CONTACTO</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#menu" class="btn-pink">
+                PEDIR AHORA <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+
+            <!-- Botón Hamburguesa -->
+            <button class="menu-toggle" id="btn-menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- SECCIÓN: INICIO -->
+        <section id="inicio" class="hero">
+            <div class="hero-bg">
+                <div class="hero-content">
+                    <h1>Un buen café<br>cambia tu día <i class="fa-regular fa-heart" style="color: #ff9fb4;"></i></h1>
+                    <p>Disfruta de los mejores cafés, postres y un ambiente maravillosamente acogedor pensado para ti.</p>
+                    <a href="#menu" class="btn-green">CONOCE NUESTRO MENÚ <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="hero-image">
+                    <!-- Corregido: &amp; y referrerpolicy agregado -->
+                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Taza de café y planta" referrerpolicy="no-referrer">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: NOSOTROS -->
+        <section id="nosotros">
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-icon icon-1"><i class="fa-solid fa-mug-saucer"></i></div>
+                    <h3>CAFÉ DE CALIDAD</h3>
+                    <p>Seleccionamos los mejores granos para ti.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon icon-2"><i class="fa-solid fa-cake-candles"></i></div>
+                    <h3>POSTRES DELICIOSOS</h3>
+                    <p>Hechos con amor para endulzar tu día.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon icon-3"><i class="fa-solid fa-couch"></i></div>
+                    <h3>AMBIENTE ACOGEDOR</h3>
+                    <p>Un lugar perfecto para relajarte y disfrutar.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon icon-4"><i class="fa-regular fa-heart"></i></div>
+                    <h3>HECHO CON PASIÓN</h3>
+                    <p>Nos encanta lo que hacemos y se nota en cada detalle.</p>
+                </div>
+            </div>
+            <br><br>
+            <div class="bottom-section">
+                <div class="card card-about">
+                    <h3>SOBRE NOSOTROS</h3>
+                    <p>Somos una cafetería local que nació del amor por el café y los momentos especiales. Nuestro objetivo es brindarte una experiencia única en cada visita.</p>
+                    <div><a href="#contacto">CONOCE MÁS SOBRE NOSOTROS</a></div>
+                </div>
+                <div class="card card-image-left"></div>
+                <div class="card card-promo">
+                    <h3>PROMOCIÓN DEL DÍA</h3>
+                    <h2>Combo Café + Postre</h2>
+                    <div class="price">$4.50</div>
+                    <a href="#menu" class="btn-promo">VER MENÚ</a>
+                </div>
+                <div class="card card-image-right"></div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: MENÚ -->
+        <section id="menu">
+            <h2 class="section-title">Nuestro Menú Clásico</h2>
+            <div class="menu-grid">
+                <div>
+                    <div class="menu-item"><strong>Espresso Doble</strong> <span>$2.50</span></div>
+                    <div class="menu-item"><strong>Capuccino Mocca</strong> <span>$3.75</span></div>
+                    <div class="menu-item"><strong>Latte Vainilla</strong> <span>$3.50</span></div>
+                    <div class="menu-item"><strong>Flat White</strong> <span>$3.25</span></div>
+                </div>
+                <div>
+                    <div class="menu-item"><strong>Pastel de Zanahoria</strong> <span>$3.00</span></div>
+                    <div class="menu-item"><strong>Cheesecake de Frutos</strong> <span>$4.00</span></div>
+                    <div class="menu-item"><strong>Croissant de Almendras</strong> <span>$2.50</span></div>
+                    <div class="menu-item"><strong>Macarons (3 unidades)</strong> <span>$3.50</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: GALERÍA -->
+        <section id="galeria">
+            <h2 class="section-title">Nuestros Espacios</h2>
+            <div class="gallery-grid">
+                <!-- Corregido: &amp; y referrerpolicy agregados -->
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Cafetería 1" referrerpolicy="no-referrer">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Cafetería 2" referrerpolicy="no-referrer">
+                <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Cafetería 3" referrerpolicy="no-referrer">
+            </div>
+        </section>
+
+    </div>
+
+    <!-- SECCIÓN: CONTACTO / FOOTER -->
+    <footer id="contacto">
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <div class="copyright">
+            <strong>Café Encanto</strong> © 2026 - encanto@cafeencanto.com
+        </div>
+        <div class="footer-links">
+            <a href="#">Privacidad</a>
+            <a href="#">Términos</a>
+        </div>
+    </footer>
+
+    <!-- Pequeño script para hacer funcionar el menú en celulares -->
+    <script>
+        const btnMenu = document.getElementById('btn-menu');
+        const menuNavegacion = document.getElementById('menu-navegacion');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Abrir/cerrar menú al tocar el botón hamburguesa
+        btnMenu.addEventListener('click', () => {
+            menuNavegacion.classList.toggle('activo');
+        });
+
+        // Cerrar el menú automáticamente cuando se hace clic en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuNavegacion.classList.remove('activo');
+            });
+        });
+    </script>
+</body>
+</html>
