@@ -323,6 +323,110 @@
             border-radius: 25px;
         }
 
+        /* --- PASTELES Y PANES (Tarjetas de producto) --- */
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .producto-card {
+            background-color: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(92, 75, 65, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(92, 75, 65, 0.12);
+        }
+
+        .producto-img {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .producto-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .producto-info h4 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .producto-info p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .producto-precio {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            align-self: flex-end;
+            background-color: var(--pastel-yellow);
+            padding: 4px 14px;
+            border-radius: 15px;
+        }
+
+        #panes .producto-precio { background-color: var(--pastel-mint); }
+
+        /* --- RESEÑAS --- */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .review-card {
+            background-color: var(--pastel-rose);
+            border-radius: 22px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--pastel-lilac);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            flex-shrink: 0;
+        }
+
+        .review-name { font-weight: 600; font-size: 0.95rem; color: var(--text-dark); }
+        .review-stars { color: #f4b942; font-size: 0.85rem; }
+
+        .review-text {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
         /* --- FOOTER / CONTACTO --- */
         footer {
             display: flex;
@@ -359,6 +463,8 @@
             .hero-content p { margin: 0 auto 30px auto; }
             .features { grid-template-columns: repeat(2, 1fr); }
             .bottom-section { grid-template-columns: 1fr 1fr; }
+            .productos-grid { grid-template-columns: repeat(2, 1fr); }
+            .reviews-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -411,6 +517,8 @@
             .menu-grid { grid-template-columns: 1fr; padding: 25px 15px; }
             .menu-item { flex-direction: column; text-align: center; gap: 5px; }
             .gallery-grid { grid-template-columns: 1fr; }
+            .productos-grid { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
             
             footer { flex-direction: column; gap: 20px; text-align: center; }
             .footer-links a { display: block; margin: 10px 0 0 0; }
@@ -432,6 +540,9 @@
                     <li><a href="#inicio" class="nav-link">INICIO</a></li>
                     <li><a href="#nosotros" class="nav-link">NOSOTROS</a></li>
                     <li><a href="#menu" class="nav-link">MENÚ</a></li>
+                    <li><a href="#pasteles" class="nav-link">PASTELES</a></li>
+                    <li><a href="#panes" class="nav-link">PANES</a></li>
+                    <li><a href="#resenas" class="nav-link">RESEÑAS</a></li>
                     <li><a href="#galeria" class="nav-link">GALERÍA</a></li>
                     <li><a href="#contacto" class="nav-link">CONTACTO</a></li>
                 </ul>
@@ -522,6 +633,191 @@
                     <div class="menu-item"><strong>Cheesecake de Frutos</strong> <span>$4.00</span></div>
                     <div class="menu-item"><strong>Croissant de Almendras</strong> <span>$2.50</span></div>
                     <div class="menu-item"><strong>Macarons (3 unidades)</strong> <span>$3.50</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: PASTELES -->
+        <section id="pasteles">
+            <h2 class="section-title">Nuestros Pasteles y Postres</h2>
+            <div class="productos-grid">
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1621303837174-89787a7d4729?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Pastel de Zanahoria</h4>
+                        <p>Con nueces y cobertura de queso crema.</p>
+                        <span class="producto-precio">$3.00</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1533134242443-d4fd215305ad?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Cheesecake de Frutos</h4>
+                        <p>Base de galleta con mermelada de frutos rojos.</p>
+                        <span class="producto-precio">$4.00</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1509365465985-25d11c17e812?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Croissant de Almendras</h4>
+                        <p>Relleno de crema de almendra y hojaldre crujiente.</p>
+                        <span class="producto-precio">$2.50</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1569864358642-9d1684040f43?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Macarons (3 unidades)</h4>
+                        <p>Sabores variados: vainilla, pistacho y frambuesa.</p>
+                        <span class="producto-precio">$3.50</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Tiramisú Clásico</h4>
+                        <p>Capas de café, mascarpone y cacao amargo.</p>
+                        <span class="producto-precio">$4.25</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Brownie con Nuez</h4>
+                        <p>Chocolate intenso con trozos de nuez tostada.</p>
+                        <span class="producto-precio">$2.75</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Tarta de Manzana</h4>
+                        <p>Manzanas caramelizadas sobre masa quebrada.</p>
+                        <span class="producto-precio">$3.50</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1616690248363-6e6b95c56ef9?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Red Velvet</h4>
+                        <p>Bizcocho aterciopelado con frosting de queso crema.</p>
+                        <span class="producto-precio">$3.75</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: PANES -->
+        <section id="panes">
+            <h2 class="section-title">Nuestros Panes</h2>
+            <div class="productos-grid">
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Pan de Banano</h4>
+                        <p>Húmedo y aromático, hecho con banano maduro.</p>
+                        <span class="producto-precio">$2.00</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1598373182133-52452f7691ef?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Pan Integral</h4>
+                        <p>Elaborado con harina integral y semillas.</p>
+                        <span class="producto-precio">$1.75</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1608198093002-ad4e005484ec?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Baguette Artesanal</h4>
+                        <p>Corteza crujiente y miga suave, horneado diario.</p>
+                        <span class="producto-precio">$2.25</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1585478259715-4d3a5f3d5f5e?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Pan de Ajo</h4>
+                        <p>Con mantequilla de ajo y perejil fresco.</p>
+                        <span class="producto-precio">$2.50</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1509440159596-6b5a4f5b6a1e?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Focaccia con Romero</h4>
+                        <p>Aceite de oliva, romero fresco y sal marina.</p>
+                        <span class="producto-precio">$3.00</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1583302355144-b0e6b9f7c11c?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Pan Dulce Tradicional</h4>
+                        <p>Suave y ligeramente dulce, ideal para el desayuno.</p>
+                        <span class="producto-precio">$1.50</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Chapata</h4>
+                        <p>Textura alveolada, perfecta para sándwiches.</p>
+                        <span class="producto-precio">$2.00</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1509440159596-9c9c1a5e9b3f?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Pan de Centeno</h4>
+                        <p>Sabor profundo, ideal para acompañar quesos.</p>
+                        <span class="producto-precio">$2.25</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: RESEÑAS -->
+        <section id="resenas">
+            <h2 class="section-title">Lo Que Dicen de Nosotros</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div>
+                            <div class="review-name">María José P.</div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"El ambiente es súper acogedor y el café siempre está perfecto. Mi lugar favorito para trabajar los fines de semana."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div>
+                            <div class="review-name">Carlos Andrade</div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Los postres son deliciosos, en especial el cheesecake. La atención podría ser un poco más rápida en horas pico."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div>
+                            <div class="review-name">Fernanda Ruiz</div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"El pan de banano es una locura, siempre lo compro para llevar. Totalmente recomendado."</p>
                 </div>
             </div>
         </section>
