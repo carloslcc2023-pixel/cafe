@@ -539,6 +539,252 @@
             footer { flex-direction: column; gap: 20px; text-align: center; }
             .footer-links a { display: block; margin: 10px 0 0 0; }
         }
+
+        /* =========================================
+           BARRA DE BÚSQUEDA
+           ========================================= */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #fff;
+            border: 1px solid rgba(92, 75, 65, 0.15);
+            border-radius: 20px;
+            padding: 8px 16px;
+            width: 230px;
+            max-width: 40vw;
+            transition: box-shadow 0.2s, width 0.2s;
+        }
+        .search-bar:focus-within {
+            box-shadow: 0 4px 14px rgba(92, 75, 65, 0.12);
+        }
+        .search-bar i { color: var(--text-light); font-size: 0.9rem; }
+        .search-bar input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            background: transparent;
+        }
+        .search-bar input::placeholder { color: var(--text-light); }
+        .search-clear {
+            display: none;
+            border: none;
+            background: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .search-bar.has-value .search-clear { display: block; }
+
+        .search-info-bar {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+            padding: 14px 24px;
+            background-color: var(--pastel-yellow);
+            border-radius: 18px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            text-align: center;
+        }
+        .search-info-bar.show { display: block; }
+        .search-no-results {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+        }
+        .search-no-results.show { display: block; }
+        .search-no-results i { font-size: 2rem; margin-bottom: 15px; color: var(--pastel-pink); display: block; }
+
+        /* Oculta secciones de productos sin coincidencias al buscar */
+        section.search-hidden { display: none; }
+
+        /* =========================================
+           BOTÓN COMPRAR
+           ========================================= */
+        .btn-comprar {
+            margin-top: 12px;
+            align-self: stretch;
+            background-color: var(--text-dark);
+            color: #fff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.82rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .btn-comprar:hover {
+            background-color: #a97d5f;
+            transform: translateY(-2px);
+        }
+        .producto-precio { align-self: flex-start !important; }
+
+        /* =========================================
+           MODAL DE COMPRA (CHECKOUT)
+           ========================================= */
+        .checkout-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(92, 75, 65, 0.45);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .checkout-overlay.show { display: flex; }
+
+        .checkout-modal {
+            background: var(--bg-main);
+            border-radius: 26px;
+            width: 100%;
+            max-width: 420px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        .checkout-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: var(--pastel-rose);
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+        .checkout-product {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px dotted rgba(92, 75, 65, 0.15);
+        }
+        .checkout-product-img {
+            width: 65px;
+            height: 65px;
+            border-radius: 14px;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+        .checkout-product h3 { font-size: 1.05rem; margin-bottom: 4px; }
+        .checkout-product .checkout-unit-price { font-size: 0.85rem; color: var(--text-light); }
+
+        .checkout-modal h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            margin-bottom: 18px;
+            color: var(--text-dark);
+        }
+
+        .form-group { margin-bottom: 14px; }
+        .form-group label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(92, 75, 65, 0.18);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            background-color: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--pastel-pink);
+        }
+        .form-row { display: flex; gap: 12px; }
+        .form-row .form-group { flex: 1; }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .qty-control button {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid rgba(92, 75, 65, 0.18);
+            background: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+        .qty-control span { font-weight: 600; min-width: 20px; text-align: center; }
+
+        .checkout-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            background-color: var(--pastel-yellow);
+            border-radius: 16px;
+            margin: 18px 0;
+            font-weight: 600;
+        }
+        .checkout-total span:last-child { font-size: 1.2rem; }
+
+        .checkout-modal .btn-pink {
+            width: 100%;
+            justify-content: center;
+            padding: 13px;
+            font-size: 0.95rem;
+        }
+
+        .checkout-success {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .checkout-success.show { display: block; }
+        .checkout-success i {
+            font-size: 3.2rem;
+            color: #8fbf9f;
+            margin-bottom: 15px;
+        }
+        .checkout-success h2 { margin-bottom: 10px; }
+        .checkout-success p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 22px; }
+        .checkout-success button {
+            background-color: var(--pastel-mint);
+            border: none;
+            padding: 11px 26px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .search-bar { width: 100%; max-width: none; order: 3; margin-top: 10px; }
+            .nav-wrapper { flex-wrap: wrap; justify-content: flex-end; }
+        }
     </style>
 </head>
 <body>
@@ -565,6 +811,15 @@
                 </ul>
             </nav>
             
+            <!-- Barra de búsqueda de productos -->
+            <div class="search-bar" id="searchBar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Buscar café, postre, pan...">
+                <button type="button" class="search-clear" id="searchClear" onclick="clearSearch()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
             <a href="#menu" class="btn-pink">
                 PEDIR AHORA <i class="fa-solid fa-cart-shopping"></i>
             </a>
@@ -577,7 +832,14 @@
     </header>
 
     <div class="container">
-        
+
+        <!-- Mensajes de búsqueda -->
+        <div class="search-info-bar" id="searchInfoBar"></div>
+        <div class="search-no-results" id="searchNoResults">
+            <i class="fa-solid fa-mug-hot"></i>
+            <p>No encontramos productos que coincidan con tu búsqueda.</p>
+        </div>
+
         <!-- SECCIÓN: INICIO -->
         <section id="inicio" class="hero">
             <div class="hero-bg">
@@ -664,6 +926,7 @@
                         <h4>Espresso Doble</h4>
                         <p>Extracción intensa, ideal para empezar el día.</p>
                         <span class="producto-precio">$2.50</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -672,6 +935,7 @@
                         <h4>Capuccino Mocca</h4>
                         <p>Espuma cremosa con un toque de chocolate.</p>
                         <span class="producto-precio">$3.75</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -680,6 +944,7 @@
                         <h4>Latte Vainilla</h4>
                         <p>Suave y cremoso, con jarabe de vainilla natural.</p>
                         <span class="producto-precio">$3.50</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -688,6 +953,7 @@
                         <h4>Flat White</h4>
                         <p>Equilibrio perfecto entre café y leche vaporizada.</p>
                         <span class="producto-precio">$3.25</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -696,6 +962,7 @@
                         <h4>Americano</h4>
                         <p>Café negro suave, ideal para acompañar cualquier postre.</p>
                         <span class="producto-precio">$2.25</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -704,6 +971,7 @@
                         <h4>Mocaccino</h4>
                         <p>Espresso, chocolate y leche vaporizada con crema batida.</p>
                         <span class="producto-precio">$3.90</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -712,6 +980,7 @@
                         <h4>Café Helado</h4>
                         <p>Refrescante, servido sobre hielo con un toque dulce.</p>
                         <span class="producto-precio">$3.00</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -720,6 +989,7 @@
                         <h4>Cold Brew</h4>
                         <p>Infusión en frío durante 12 horas, suave y sin acidez.</p>
                         <span class="producto-precio">$3.40</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
             </div>
@@ -735,6 +1005,7 @@
                         <h4>Pastel de Zanahoria</h4>
                         <p>Con nueces y cobertura de queso crema.</p>
                         <span class="producto-precio">$3.00</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -743,6 +1014,7 @@
                         <h4>Cheesecake de Frutos</h4>
                         <p>Base de galleta con mermelada de frutos rojos.</p>
                         <span class="producto-precio">$4.00</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -751,6 +1023,7 @@
                         <h4>Croissant de Almendras</h4>
                         <p>Relleno de crema de almendra y hojaldre crujiente.</p>
                         <span class="producto-precio">$2.50</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -759,6 +1032,7 @@
                         <h4>Macarons (3 unidades)</h4>
                         <p>Sabores variados: vainilla, pistacho y frambuesa.</p>
                         <span class="producto-precio">$3.50</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -767,6 +1041,7 @@
                         <h4>Tiramisú Clásico</h4>
                         <p>Capas de café, mascarpone y cacao amargo.</p>
                         <span class="producto-precio">$4.25</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -775,6 +1050,7 @@
                         <h4>Brownie con Nuez</h4>
                         <p>Chocolate intenso con trozos de nuez tostada.</p>
                         <span class="producto-precio">$2.75</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -783,6 +1059,7 @@
                         <h4>Tarta de Manzana</h4>
                         <p>Manzanas caramelizadas sobre masa quebrada.</p>
                         <span class="producto-precio">$3.50</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -791,6 +1068,7 @@
                         <h4>Red Velvet</h4>
                         <p>Bizcocho aterciopelado con frosting de queso crema.</p>
                         <span class="producto-precio">$3.75</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
             </div>
@@ -806,6 +1084,7 @@
                         <h4>Pan de Banano</h4>
                         <p>Húmedo y aromático, hecho con banano maduro.</p>
                         <span class="producto-precio">$2.00</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -814,6 +1093,7 @@
                         <h4>Pan Integral</h4>
                         <p>Elaborado con harina integral y semillas.</p>
                         <span class="producto-precio">$1.75</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -822,6 +1102,7 @@
                         <h4>Baguette Artesanal</h4>
                         <p>Corteza crujiente y miga suave, horneado diario.</p>
                         <span class="producto-precio">$2.25</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -830,6 +1111,7 @@
                         <h4>Pan de Ajo</h4>
                         <p>Con mantequilla de ajo y perejil fresco.</p>
                         <span class="producto-precio">$2.50</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -838,6 +1120,7 @@
                         <h4>Focaccia con Romero</h4>
                         <p>Aceite de oliva, romero fresco y sal marina.</p>
                         <span class="producto-precio">$3.00</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -846,6 +1129,7 @@
                         <h4>Pan Dulce Tradicional</h4>
                         <p>Suave y ligeramente dulce, ideal para el desayuno.</p>
                         <span class="producto-precio">$1.50</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
@@ -854,14 +1138,16 @@
                         <h4>Chapata</h4>
                         <p>Textura alveolada, perfecta para sándwiches.</p>
                         <span class="producto-precio">$2.00</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
                 <div class="producto-card">
-                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1509440159596-9c9c1a5e9b3f?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-img" style="background-image:url('https://www.infobae.com/resizer/v2/LW2WBT4SSZG3JOLJNMG4BLQSVM?auth=e70910f4a7d972e02fb21c26efc295a0f1abb01c17a1239442b150ac29bd6011&smart=true&width=992&height=558&quality=85');"></div>
                     <div class="producto-info">
                         <h4>Pan de Centeno</h4>
                         <p>Sabor profundo, ideal para acompañar quesos.</p>
                         <span class="producto-precio">$2.25</span>
+                    <button class="btn-comprar" onclick="openCheckout(this)"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                     </div>
                 </div>
             </div>
@@ -941,6 +1227,94 @@
         </div>
     </footer>
 
+    <!-- ===================== MODAL DE COMPRA (CHECKOUT) ===================== -->
+    <div class="checkout-overlay" id="checkoutOverlay" onclick="closeCheckoutOnOverlay(event)">
+        <div class="checkout-modal">
+            <button class="checkout-close" onclick="closeCheckout()"><i class="fa-solid fa-xmark"></i></button>
+
+            <!-- Vista: formulario -->
+            <div id="checkoutFormBody">
+                <h2>Confirmar Pedido</h2>
+
+                <div class="checkout-product">
+                    <div class="checkout-product-img" id="checkoutImg"></div>
+                    <div>
+                        <h3 id="checkoutName"></h3>
+                        <div class="checkout-unit-price" id="checkoutUnitPrice"></div>
+                    </div>
+                </div>
+
+                <form id="checkoutForm" onsubmit="return handlePaymentSubmit(event)">
+                    <div class="form-group">
+                        <label>Nombre completo</label>
+                        <input type="text" required placeholder="Tu nombre">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" required placeholder="09XXXXXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label>Cantidad</label>
+                            <div class="qty-control">
+                                <button type="button" onclick="changeQty(-1)">-</button>
+                                <span id="checkoutQty">1</span>
+                                <button type="button" onclick="changeQty(1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Entrega</label>
+                        <select id="checkoutEntrega">
+                            <option value="retiro">Retirar en tienda</option>
+                            <option value="domicilio">Envío a domicilio</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dirección / Referencia</label>
+                        <input type="text" placeholder="Ej: Calle principal y secundaria">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Número de tarjeta</label>
+                        <input type="text" required maxlength="19" placeholder="0000 0000 0000 0000" oninput="formatCardNumber(this)">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Vencimiento</label>
+                            <input type="text" required maxlength="5" placeholder="MM/AA" oninput="formatExpiry(this)">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" required maxlength="3" placeholder="123">
+                        </div>
+                    </div>
+
+                    <div class="checkout-total">
+                        <span>Total</span>
+                        <span id="checkoutTotal"></span>
+                    </div>
+
+                    <button type="submit" class="btn-pink">
+                        CONFIRMAR PEDIDO <i class="fa-solid fa-lock"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Vista: éxito -->
+            <div class="checkout-success" id="checkoutSuccess">
+                <i class="fa-solid fa-circle-check"></i>
+                <h2>¡Pedido recibido!</h2>
+                <p id="checkoutSuccessText"></p>
+                <button onclick="closeCheckout()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Pequeño script para hacer funcionar el menú en celulares -->
     <script>
         const btnMenu = document.getElementById('btn-menu');
@@ -958,6 +1332,172 @@
                 menuNavegacion.classList.remove('activo');
             });
         });
+
+        /* ==========================================================
+           CHECKOUT (FORMULARIO DE COMPRA) — simulado, solo para demo
+           ========================================================== */
+        let currentProduct = null; // { name, price, img }
+        let currentQty = 1;
+
+        function parsePrice(text) {
+            return parseFloat(text.replace('$', '').trim());
+        }
+
+        function formatPrice(num) {
+            return '$' + num.toFixed(2);
+        }
+
+        function openCheckout(btn) {
+            const card = btn.closest('.producto-card');
+            const name = card.querySelector('h4').textContent;
+            const priceText = card.querySelector('.producto-precio').textContent;
+            const imgEl = card.querySelector('.producto-img');
+            const imgStyle = imgEl ? imgEl.style.backgroundImage : '';
+
+            currentProduct = { name, price: parsePrice(priceText) };
+            currentQty = 1;
+
+            document.getElementById('checkoutImg').style.backgroundImage = imgStyle;
+            document.getElementById('checkoutName').textContent = name;
+            document.getElementById('checkoutUnitPrice').textContent = formatPrice(currentProduct.price) + ' c/u';
+            document.getElementById('checkoutQty').textContent = currentQty;
+            document.getElementById('checkoutTotal').textContent = formatPrice(currentProduct.price);
+
+            document.getElementById('checkoutForm').reset();
+            document.getElementById('checkoutFormBody').classList.remove('hidden');
+            document.getElementById('checkoutFormBody').style.display = 'block';
+            document.getElementById('checkoutSuccess').classList.remove('show');
+
+            document.getElementById('checkoutOverlay').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutOverlay').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        function closeCheckoutOnOverlay(e) {
+            if (e.target.id === 'checkoutOverlay') closeCheckout();
+        }
+
+        function changeQty(delta) {
+            if (!currentProduct) return;
+            currentQty = Math.max(1, Math.min(20, currentQty + delta));
+            document.getElementById('checkoutQty').textContent = currentQty;
+            document.getElementById('checkoutTotal').textContent = formatPrice(currentProduct.price * currentQty);
+        }
+
+        function formatCardNumber(input) {
+            let digits = input.value.replace(/\D/g, '').slice(0, 16);
+            input.value = digits.replace(/(.{4})/g, '$1 ').trim();
+        }
+
+        function formatExpiry(input) {
+            let digits = input.value.replace(/\D/g, '').slice(0, 4);
+            if (digits.length >= 3) {
+                input.value = digits.slice(0, 2) + '/' + digits.slice(2);
+            } else {
+                input.value = digits;
+            }
+        }
+
+        function handlePaymentSubmit(e) {
+            e.preventDefault();
+            if (!currentProduct) return false;
+
+            const total = currentProduct.price * currentQty;
+            document.getElementById('checkoutFormBody').style.display = 'none';
+            const successBox = document.getElementById('checkoutSuccess');
+            document.getElementById('checkoutSuccessText').textContent =
+                `Tu pedido de ${currentQty} x "${currentProduct.name}" por ${formatPrice(total)} fue procesado correctamente (demo).`;
+            successBox.classList.add('show');
+
+            return false;
+        }
+
+        // Cerrar el modal con la tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCheckout();
+        });
+
+        /* ==========================================================
+           BÚSQUEDA de productos por nombre o descripción
+           ========================================================== */
+        function normalizeText(str) {
+            return str
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase()
+                .trim();
+        }
+
+        function clearSearch() {
+            const input = document.getElementById('searchInput');
+            input.value = '';
+            applySearch('');
+            input.focus();
+        }
+
+        function applySearch(term) {
+            const normTerm = normalizeText(term);
+            const searchBar = document.getElementById('searchBar');
+            const infoBar = document.getElementById('searchInfoBar');
+            const noResults = document.getElementById('searchNoResults');
+
+            searchBar.classList.toggle('has-value', normTerm !== '');
+
+            const productSections = ['cafe', 'pasteles', 'panes'];
+
+            // Sin búsqueda: mostrar todo tal cual estaba
+            if (normTerm === '') {
+                document.querySelectorAll('.producto-card').forEach(card => {
+                    card.style.display = '';
+                });
+                productSections.forEach(id => {
+                    const section = document.getElementById(id);
+                    if (section) section.classList.remove('search-hidden');
+                });
+                infoBar.classList.remove('show');
+                noResults.classList.remove('show');
+                return;
+            }
+
+            let totalVisible = 0;
+
+            productSections.forEach(id => {
+                const section = document.getElementById(id);
+                if (!section) return;
+                let visibleInSection = 0;
+
+                section.querySelectorAll('.producto-card').forEach(card => {
+                    const name = normalizeText(card.querySelector('h4').textContent);
+                    const desc = normalizeText(card.querySelector('p').textContent);
+                    const match = name.includes(normTerm) || desc.includes(normTerm);
+                    card.style.display = match ? 'flex' : 'none';
+                    if (match) { visibleInSection++; totalVisible++; }
+                });
+
+                section.classList.toggle('search-hidden', visibleInSection === 0);
+            });
+
+            infoBar.textContent = `Resultados para "${term}" (${totalVisible})`;
+            infoBar.classList.toggle('show', totalVisible > 0);
+            noResults.classList.toggle('show', totalVisible === 0);
+        }
+
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', () => applySearch(searchInput.value));
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    applySearch(searchInput.value);
+                    const firstVisible = document.querySelector('.producto-card:not([style*="display: none"])');
+                    if (firstVisible) firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
     </script>
 </body>
 </html>
