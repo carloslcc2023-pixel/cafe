@@ -382,6 +382,7 @@
         }
 
         #panes .producto-precio { background-color: var(--pastel-mint); }
+        #cafe .producto-precio { background-color: var(--pastel-peach); }
 
         /* --- RESEÑAS --- */
         .reviews-grid {
@@ -453,6 +454,21 @@
             font-size: 1.2rem; 
         }
         .footer-links a { color: var(--text-dark); text-decoration: none; margin-left: 15px; font-weight: 500;}
+
+        .phone-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .phone-link i { color: #e2a9a9; }
+        .phone-link:hover { color: #a97782; }
 
         /* =========================================
            DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
@@ -540,6 +556,7 @@
                     <li><a href="#inicio" class="nav-link">INICIO</a></li>
                     <li><a href="#nosotros" class="nav-link">NOSOTROS</a></li>
                     <li><a href="#menu" class="nav-link">MENÚ</a></li>
+                    <li><a href="#cafe" class="nav-link">CAFÉ</a></li>
                     <li><a href="#pasteles" class="nav-link">PASTELES</a></li>
                     <li><a href="#panes" class="nav-link">PANES</a></li>
                     <li><a href="#resenas" class="nav-link">RESEÑAS</a></li>
@@ -633,6 +650,77 @@
                     <div class="menu-item"><strong>Cheesecake de Frutos</strong> <span>$4.00</span></div>
                     <div class="menu-item"><strong>Croissant de Almendras</strong> <span>$2.50</span></div>
                     <div class="menu-item"><strong>Macarons (3 unidades)</strong> <span>$3.50</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: CAFÉ -->
+        <section id="cafe">
+            <h2 class="section-title">Nuestros Cafés</h2>
+            <div class="productos-grid">
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Espresso Doble</h4>
+                        <p>Extracción intensa, ideal para empezar el día.</p>
+                        <span class="producto-precio">$2.50</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1534778101976-62847782c213?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Capuccino Mocca</h4>
+                        <p>Espuma cremosa con un toque de chocolate.</p>
+                        <span class="producto-precio">$3.75</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Latte Vainilla</h4>
+                        <p>Suave y cremoso, con jarabe de vainilla natural.</p>
+                        <span class="producto-precio">$3.50</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1541167760496-1628856ab772?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Flat White</h4>
+                        <p>Equilibrio perfecto entre café y leche vaporizada.</p>
+                        <span class="producto-precio">$3.25</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Americano</h4>
+                        <p>Café negro suave, ideal para acompañar cualquier postre.</p>
+                        <span class="producto-precio">$2.25</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Mocaccino</h4>
+                        <p>Espresso, chocolate y leche vaporizada con crema batida.</p>
+                        <span class="producto-precio">$3.90</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Café Helado</h4>
+                        <p>Refrescante, servido sobre hielo con un toque dulce.</p>
+                        <span class="producto-precio">$3.00</span>
+                    </div>
+                </div>
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image:url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=80');"></div>
+                    <div class="producto-info">
+                        <h4>Cold Brew</h4>
+                        <p>Infusión en frío durante 12 horas, suave y sin acidez.</p>
+                        <span class="producto-precio">$3.40</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -844,6 +932,8 @@
         </div>
         <div class="copyright">
             <strong>Café Encanto</strong> © 2026 - encanto@cafeencanto.com
+            <br>
+            <a href="tel:+593968681134" class="phone-link"><i class="fa-solid fa-phone"></i> 0968 681 134</a>
         </div>
         <div class="footer-links">
             <a href="#">Privacidad</a>
